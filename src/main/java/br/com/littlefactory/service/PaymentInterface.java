@@ -2,7 +2,7 @@ package br.com.littlefactory.service;
 
 import br.com.littlefactory.model.PagamentoDto;
 
-public interface PaymentInterface<T> {
+public interface PaymentInterface<T extends PagamentoDto> {
 
 	PaymentType getPaymentType();
 	
