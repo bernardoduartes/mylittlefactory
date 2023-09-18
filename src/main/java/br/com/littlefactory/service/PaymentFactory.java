@@ -32,7 +32,7 @@ public class PaymentFactory {
     private void createImpls(Set<PaymentInterface> strategySet) {
         
         strategySet.forEach(
-                strategy -> players.put(strategy.getPaymentType(), strategy));
+                strategy -> players.put((PaymentType) strategy.getPaymentType(), strategy));
         
         System.out.println();
     }

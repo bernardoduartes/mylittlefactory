@@ -1,8 +1,10 @@
 package br.com.littlefactory.service;
 
-public interface PaymentInterface {
+import br.com.littlefactory.model.PagamentoDto;
+
+public interface PaymentInterface<T> {
 
 	PaymentType getPaymentType();
 	
-	void pay();
+	void pay(T pagamento);
 }

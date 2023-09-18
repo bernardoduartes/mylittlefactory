@@ -5,6 +5,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,14 +21,9 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 	
-    @GetMapping("cc")
-    public ResponseEntity<PaymentInterface> get(){
-        return ResponseEntity.ok(paymentService.cc());
-    }
-    
-    @GetMapping("pix")
-    public ResponseEntity<PaymentInterface> pix(){
-        return ResponseEntity.ok(paymentService.pix());
+    @PostMapping("{paymentType}")
+    public ResponseEntity<PaymentInterface> pay(@PathVariable PaymentType paymentType){
+        return ResponseEntity.ok(paymentService.pay(paymentType));
     }
     
     @GetMapping("all")
