@@ -1,6 +1,6 @@
 package br.com.littlefactory.model;
 
-public abstract class PagamentoCCDto {
+public  class PagamentoCCDto extends PagamentoDto {
     public String cardHash;
 
 }
